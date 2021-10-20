@@ -1,0 +1,47 @@
+{
+    "name": "app",
+    "version": "1.0.0",
+    "main": "bootstrap.jsx",
+    "author": "Sotiris Ioannou",
+    "license": "MIT",
+    "scripts": {
+        "start": "cross-env webpack serve --config ./infra/webpack.config.js --stats verbose --env development",
+        "build": "cross-env webpack --config ./infra/webpack.config.js",
+        "test": "cypress run-ct"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.15.8",
+        "@babel/preset-env": "^7.15.8",
+        "@babel/preset-react": "^7.14.5",
+        "@cypress/react": "^5.10.1",
+        "@cypress/webpack-dev-server": "^1.6.0",
+        "babel-loader": "^8.2.2",
+        "babel-plugin-styled-components": "^1.13.2",
+        "cross-env": "^7.0.3",
+        "cypress": "^8.6.0",
+        "eslint": "^7.2.0",
+        "eslint-config-airbnb": "18.2.1",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-cypress": "^2.12.1",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-react": "^7.21.5",
+        "eslint-plugin-react-hooks": "^1.7.0",
+        "html-webpack-plugin": "^5.4.0",
+        "prettier": "^2.4.1",
+        "release-it": "^14.11.6",
+        "webpack": "^5.58.2",
+        "webpack-cli": "^4.9.0",
+        "webpack-dev-server": "^4.3.1"
+    },
+    "dependencies": {
+        "@emotion/react": "^11.5.0",
+        "@emotion/styled": "^11.3.0",
+        "@mui/material": "^5.0.4",
+        "prop-types": "^15.7.2",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-intl": "^5.20.13"
+    }
+}

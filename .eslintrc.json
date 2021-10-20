@@ -1,0 +1,11 @@
+{
+    "extends": ["airbnb", "airbnb/hooks", "prettier"],
+    "plugins": ["cypress","prettier"],
+    "rules": {
+        "prettier/prettier": ["error"],
+        "import/no-unresolved": "off"
+    },
+    "env": {
+        "cypress/globals": true
+    }
+}
