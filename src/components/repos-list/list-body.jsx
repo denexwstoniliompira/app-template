@@ -13,7 +13,7 @@ export default function ListBody({ items }) {
                         <a href={htmlUrl}>Link</a>
                     </TableCell>
                     <TableCell>{description}</TableCell>
-                    <TableCell>
+                    <TableCell sx={{ minWidth: 250 }}>
                         <RatingColumn id={id} />
                     </TableCell>
                 </TableRow>
@@ -21,6 +21,7 @@ export default function ListBody({ items }) {
         </TableBody>
     )
 }
+
 ListBody.defaultProps = {
     items: [],
 }

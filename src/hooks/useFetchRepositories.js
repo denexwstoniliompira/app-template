@@ -1,5 +1,5 @@
 import { useEffect, useReducer } from 'react'
-import { FETCH_REPOSITORIES } from '../api-endpoints'
+import { FETCH_REPOSITORIES } from 'src/api-endpoints'
 
 const REDUCER_STATES = {
     isLoading: 'LOADING',

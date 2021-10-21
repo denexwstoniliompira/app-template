@@ -23,6 +23,7 @@ export default function Main() {
         <Paper sx={{ margin: 2, padding: 4 }}>
             <ReposList.Header totalCount={totalCount} />
             <ReposList>
+                {/* this method gives us the freedom to add more children in the future, eg pagination */}
                 <ReposList.Body items={items} />
             </ReposList>
         </Paper>

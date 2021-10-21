@@ -77,8 +77,14 @@ module.exports = (env) => {
         },
         resolve: {
             alias: {
+                src: path.resolve(__dirname, '..', 'src'),
                 '@hooks': path.resolve(__dirname, '..', 'src/hooks'),
                 '@components': path.resolve(__dirname, '..', 'src/components'),
+                '@translations': path.resolve(
+                    __dirname,
+                    '..',
+                    'src/translations'
+                ),
             },
             extensions: ['.js', '.jsx'],
         },

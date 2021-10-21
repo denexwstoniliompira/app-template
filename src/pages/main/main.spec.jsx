@@ -1,23 +1,27 @@
 import React from 'react'
 import { mount } from '@cypress/react'
 
-import Main from './main'
-import { FETCH_REPOSITORIES } from '../../api-endpoints'
-
 import { IntlProvider } from 'react-intl'
-import en from '../../translations/en.json'
+import en from '@translations/en.json'
+import { FETCH_REPOSITORIES } from 'src/api-endpoints'
+import Main from './main'
 
 describe('Main', () => {
-    it('should render loading indicator', () => {
-        cy.intercept('GET', FETCH_REPOSITORIES, {
-            statusCode: 401,
-        }).as('getReposListWithError')
-
+    function mountComponent() {
         mount(
             <IntlProvider locale="en" messages={en}>
                 <Main />
             </IntlProvider>
         )
+    }
+
+    it('should render loading indicator', () => {
+        cy.intercept('GET', FETCH_REPOSITORIES, {
+            statusCode: 401,
+        }).as('getReposListWithError')
+
+        mountComponent()
+
         cy.get('[testid=loading-indicator]').should('exist')
     })
 
@@ -26,38 +30,10 @@ describe('Main', () => {
             statusCode: 401,
         }).as('getReposListWithError')
 
-        mount(
-            <IntlProvider locale="en" messages={en}>
-                <Main />
-            </IntlProvider>
-        )
+        mountComponent()
+
         cy.wait('@getReposListWithError')
             .get('div[role=alert]')
             .contains('Something went wrong')
-    })
-
-    it('should render correct table header cells', () => {
-        cy.intercept(FETCH_REPOSITORIES).as('getReposList')
-
-        mount(
-            <IntlProvider locale="en" messages={en}>
-                <Main />
-            </IntlProvider>
-        )
-
-        cy.wait('@getReposList')
-            .get('thead')
-            .within(() => {
-                const row = cy.get('tr').children()
-                const values = [
-                    'Name',
-                    'Github Link',
-                    'Description',
-                    'No. Stars',
-                ]
-                row.each(($child, index) => {
-                    expect($child).to.have.text(values[index])
-                })
-            })
     })
 })
